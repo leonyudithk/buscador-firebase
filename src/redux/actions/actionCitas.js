@@ -1,4 +1,4 @@
-import { addDoc, collection, getDocs } from 'firebase/firestore'
+import { addDoc, collection, getDocs, query, where, getDocsFromServer} from 'firebase/firestore'
 import {DB} from '../../firebase/firebaseConfig.js'
 import { typesCitas } from "../types/types"
 
@@ -47,9 +47,32 @@ export const addCitaSync = (Cita) => {
 
 
 //-----------------------------------------------------------------/
+
+export const buscarCitaAsync = (buscar) => {
+   
+
+       return async (dispatch)=>{
+
+        const collectionCitas = collection(DB, "Citas")
+        const q = query(collectionCitas, where('nombre', '>=', buscar), where('nombre', '<=', buscar + '~'))
+        const datosEncontrados = await getDocs(q)
+        
+        console.log(datosEncontrados)
+
+                const cita = []
+                datosEncontrados.forEach(c => {
+                cita.push(c.data())
+                })
+                console.log(cita)
+                dispatch(listaCitaSync(cita))
+
+      }
+}
+
+
 export const buscarCitaSync = (buscar) => {
     return {
-        type: typesCitas.buscar,
+        type: typesCitas.search,
         payload: buscar
     }
 }

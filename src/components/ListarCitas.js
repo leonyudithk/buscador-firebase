@@ -6,7 +6,7 @@ import { listaCitaAsync } from '../redux/actions/actionCitas';
 
 const ListarCitas = () => {
     const dispatch = useDispatch()
-    const { Cita } = useSelector(store => store.cita)
+    const { Cita} = useSelector(store => store.cita)
 
     useEffect(() => {
         dispatch(listaCitaAsync())
