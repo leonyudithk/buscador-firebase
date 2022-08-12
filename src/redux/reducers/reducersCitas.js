@@ -14,7 +14,10 @@ export const reducersCitas =(state = initialState, action)=>{
                 return{
                          Cita : [...action.payload]
                 }  
-                  
+        case typesCitas.search:
+                    return{
+                             Cita : action.payload
+                    }           
     
         default:
            return state

@@ -1,6 +1,5 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
 import {useDispatch} from 'react-redux'
 import {registrarUserAsync } from '../redux/actions/actionUsuario';
 import { Formik, Form, Field } from 'formik'

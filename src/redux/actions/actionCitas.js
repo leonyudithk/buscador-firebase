@@ -1,6 +1,5 @@
 import { addDoc, collection, getDocs } from 'firebase/firestore'
 import {DB} from '../../firebase/firebaseConfig.js'
-
 import { typesCitas } from "../types/types"
 
 
@@ -43,5 +42,14 @@ export const addCitaSync = (Cita) => {
     return {
         type: typesCitas.add,
         payload: Cita
+    }
+}
+
+
+//-----------------------------------------------------------------/
+export const buscarCitaSync = (buscar) => {
+    return {
+        type: typesCitas.buscar,
+        payload: buscar
     }
 }

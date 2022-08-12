@@ -19,6 +19,7 @@ const NavBars = () => {
           <Nav className="me-auto">
             <Nav.Link ><Link  to="/">Home</Link></Nav.Link>
             <Nav.Link ><Link to="/add" >Add</Link></Nav.Link>
+            <Nav.Link ><Link to="/buscar" >Buscar</Link></Nav.Link>
            </Nav>
         </Container>
         <Nav>
